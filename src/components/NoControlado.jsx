@@ -1,13 +1,22 @@
+import {useRef} from "react";
+
 const NoControlado = () => {
+
+    const form = useRef(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const formData = new FormData(form.current);
+
         console.log("Submit");
+        console.log(form.current);
+        console.log([...formData.entries()]);
 
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} ref={form}>
             <input type="text" placeholder="Ingrese ToDo" className="form-control mb-2" name="title" />   {/* name para usar el form data */}
             <textarea className="form-control mb-2" placeholder="Limpiar caja michis 😹" name="descipcion" />
 
