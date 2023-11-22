@@ -36,11 +36,12 @@ const NoControlado = () => {
                     <option value="pendiente">Pendiente</option>
                     <option value="completada">Completada</option>
                 </select>
+                
 
-                <button type="submit" className="btn btn-primary ">Guardar Tarea</button>
+                <button type="submit" className="btn btn-primary mx-2">Guardar Tarea</button>
+                
                 {
-                    error !=='' && error
-
+                    error !=='' && error //
                 }
 
 
