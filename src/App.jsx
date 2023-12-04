@@ -9,7 +9,7 @@ const App = () => {
       <h1>Formularios</h1>
       {/* <NoControlado/> */}
       <Controlado/>
-      <Cat/>
+      {/* <Cat/> */}
     </div>
   );
 
