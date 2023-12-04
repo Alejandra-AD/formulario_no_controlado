@@ -16,11 +16,29 @@ const Controlado = () => {
 
     const {title,description,state,priority} = todo;
 
+    const [error, setError]= useState(false);
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(title,description,state,priority);
+
+        // vaidando los datos
+        if (!title.trim() || !description.trim()) {
+
+            console.log("llene todos los campos");
+            setError(true);
+            return;
+    
+        }else{
+            setError(false);
+    
+        }
+       
+        //se envian los datos en un array
     
     }
+
+    
 
     const handleChange = (e) =>{
         const {name,type,checked,value} = e.target;
@@ -33,7 +51,8 @@ const Controlado = () => {
 
 
     return(
-
+        <div>{error && <div className="alert alert-danger">Todos los campos son obligatorios</div>}
+       
         <form onSubmit={handleSubmit}>
             <input type="text"  className="form-control mb-2" placeholder="Ingrese Tarea" name="title" value={title} onChange={handleChange}/>
             <textarea className="form-control mb-2" placeholder="Descripción Tarea" name="description" value={description} onChange={handleChange} ></textarea>
@@ -46,8 +65,8 @@ const Controlado = () => {
                 <option value="completada">Completada</option>
             </select>
             <button type="submit" className="btn btn-primary">Guardar Tarea</button>
-
         </form>
+        </div>
 
     )
     
