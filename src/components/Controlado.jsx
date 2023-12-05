@@ -17,7 +17,6 @@ const Controlado = () => {
     const {title,description,state,priority} = todo;
 
     const [error, setError]= useState(false);
-
     const handleSubmit = (e) =>{
         e.preventDefault();
         console.log(title,description,state,priority);
@@ -52,6 +51,7 @@ const Controlado = () => {
 
     return(
         <div>{error && <div className="alert alert-danger">Todos los campos son obligatorios</div>}
+        {/* si el error se cumple entonces se muestra la alert */}
        
         <form onSubmit={handleSubmit}>
             <input type="text"  className="form-control mb-2" placeholder="Ingrese Tarea" name="title" value={title} onChange={handleChange}/>
